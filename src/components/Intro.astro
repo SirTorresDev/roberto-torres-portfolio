@@ -1,0 +1,144 @@
+---
+// No props needed
+---
+
+<section id="home" class="intro">
+  <div class="intro-overlay"></div>
+  <div class="intro-content">
+    <div class="container">
+      <h1 class="intro-title">Roberto Torres</h1>
+      <p class="intro-subtitle">
+        <strong class="typed-text" id="typedText"></strong>
+        <span class="cursor">|</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .intro {
+    height: 100vh;
+    position: relative;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-image: url('/assets/img/intro-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: grid;
+    place-items: center;
+    color: #fff;
+  }
+  
+  .intro-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+  }
+  
+  .intro-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    animation: fadeIn 1s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .intro-title {
+    font-size: clamp(2rem, 6vw, 4rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #fff;
+  }
+  
+  .intro-subtitle {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    font-weight: 300;
+  }
+  
+  .typed-text {
+    color: #fff;
+    font-weight: 500;
+  }
+  
+  .cursor {
+    color: #0078ff;
+    animation: blink 1s infinite;
+    margin-left: 2px;
+  }
+  
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+  
+  @media (max-width: 768px) {
+    .intro {
+      background-attachment: scroll;
+    }
+  }
+</style>
+
+<script>
+  class TypeWriter {
+    element: HTMLElement;
+    words: string[];
+    text: string;
+    wordIndex: number;
+    isDeleting: boolean;
+    wait: number;
+
+    constructor(element: HTMLElement, words: string[], wait: number = 3000) {
+      this.element = element;
+      this.words = words;
+      this.text = '';
+      this.wordIndex = 0;
+      this.wait = wait;
+      this.isDeleting = false;
+      this.type();
+    }
+
+    type() {
+      const current = this.wordIndex % this.words.length;
+      const fullText = this.words[current];
+
+      if (this.isDeleting) {
+        this.text = fullText.substring(0, this.text.length - 1);
+      } else {
+        this.text = fullText.substring(0, this.text.length + 1);
+      }
+
+      this.element.textContent = this.text;
+
+      let typeSpeed = this.isDeleting ? 50 : 150;
+
+      if (!this.isDeleting && this.text === fullText) {
+        typeSpeed = this.wait;
+        this.isDeleting = true;
+      } else if (this.isDeleting && this.text === '') {
+        this.isDeleting = false;
+        this.wordIndex++;
+        typeSpeed = 500;
+      }
+
+      setTimeout(() => this.type(), typeSpeed);
+    }
+  }
+
+  // Cambio aquí: buscar por ID en lugar de clase
+  const typewriterElement = document.getElementById('typedText') as HTMLElement;
+  
+  if (typewriterElement) {
+    const words = ['Full Stack Developer', 'Software Engineer', 'Tech Enthusiast'];
+    new TypeWriter(typewriterElement, words, 2000);
+  }
+</script>

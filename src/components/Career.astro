@@ -1,0 +1,662 @@
+---
+const experiences = [
+  {
+    title: 'Technical Leadership & Software Engineering',
+    company: 'IAG Iberia',
+    period: '06/2024 - Present',
+    location: 'Madrid, Spain',
+    logo: '/assets/img/companies/iberia-logo.png',
+    description: 'Development and maintenance of critical business applications using Spring Boot and microservices architecture.',
+    technologies: ['AWS', 'Angular', 'Java', 'Docker', 'Kubernetes', 'Microservices'],
+    achievements: [
+      'Development of microservices with Spring Boot',
+      'Integration with legacy systems',
+      'Performance optimization and scalability'
+    ],
+    current: true,
+    backgroundImage: 'https://media.licdn.com/dms/image/v2/D4D16AQH3MrOi0MDbOw/profile-displaybackgroundimage-shrink_350_1400/B4DZXUgNf9G8Ac-/0/1743026969464?e=1762992000&v=beta&t=EjhIjbwpFWGt0FBmYpkNDwlFD9uHQ92FkZnuQ4oKJ4Y'
+  },
+  {
+    title: 'Full Stack Developer',
+    company: 'ATOS',
+    period: '01/2023 - 05/2024',
+    location: 'Madrid, Spain',
+    logo: '/assets/img/companies/atos-logo.png',
+    description: 'Full-stack development of web applications using React, Node.js and PostgreSQL.',
+    technologies: ['React', 'Node.js', 'PostgreSQL', 'AWS', 'Docker'],
+    achievements: [
+      'Development of enterprise applications',
+      'Implementation of CI/CD pipelines',
+      'Database optimization and design'
+    ]
+  },
+  {
+    title: 'Junior Developer',
+    company: 'LCC Spain',
+    period: '06/2022 - 12/2022',
+    location: 'Madrid, Spain',
+    logo: '/assets/img/companies/lcc-logo.png',
+    description: 'Development of web applications and API integration. Collaboration in agile teams.',
+    technologies: ['React', 'Django', 'Python', 'REST APIs', 'Git'],
+    achievements: [
+      'Frontend development with React',
+      'Backend development with Django',
+      'Unit and integration testing'
+    ]
+  }
+];
+---
+
+<section id="career" class="experience-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Professional Experience</h2>
+      <div class="line"></div>
+      <p class="subtitle">My career journey and key achievements</p>
+    </div>
+    
+    <div class="timeline-wrapper">
+      <div class="timeline-line-continuous"></div>
+      
+      <div class="timeline-container">
+        {experiences.map((exp, index) => (
+          <article class="experience-item" style={`animation-delay: ${index * 0.15}s`}>
+            <div class="timeline-side">
+              <div class={`timeline-dot ${exp.current ? 'current' : ''}`}>
+                {exp.current && <span class="dot-pulse"></span>}
+              </div>
+            </div>
+            
+            <div class="experience-content">
+              <div 
+                class={`card-header ${exp.backgroundImage ? 'has-background' : ''}`}
+                style={exp.backgroundImage ? `background-image: url('${exp.backgroundImage}')` : ''}
+              >
+                {exp.backgroundImage && <div class="header-overlay"></div>}
+                <div class="header-content">
+                  <div class="header-main">
+                    <div class="logo-wrapper">
+                      <img 
+                        src={exp.logo} 
+                        alt={`${exp.company} logo`}
+                        class="company-logo"
+                        loading="lazy"
+                        onerror="this.style.display='none'"
+                      />
+                    </div>
+                    <div class="title-wrapper">
+                      <h3 class="job-title">{exp.title}</h3>
+                      <p class="company-name">{exp.company}</p>
+                    </div>
+                  </div>
+                  <div class="meta-wrapper">
+                    <div class="period">
+                      <i class="far fa-calendar"></i>
+                      {exp.period}
+                    </div>
+                    <div class="location">
+                      <i class="fas fa-map-marker-alt"></i>
+                      {exp.location}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="card-body">
+                <p class="description">{exp.description}</p>
+                
+                <div class="info-section">
+                  <h4 class="section-title">
+                    <i class="fas fa-code"></i>
+                    Technologies
+                  </h4>
+                  <div class="tech-grid">
+                    {exp.technologies.map(tech => (
+                      <span class="tech-badge">{tech}</span>
+                    ))}
+                  </div>
+                </div>
+                
+                <div class="info-section">
+                  <h4 class="section-title">
+                    <i class="fas fa-check-circle"></i>
+                    Key Achievements
+                  </h4>
+                  <ul class="achievements">
+                    {exp.achievements.map(achievement => (
+                      <li>{achievement}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .experience-section {
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+    padding: 90px 0;
+  }
+  
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* Header */
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.5px;
+  }
+  
+  .line {
+    width: 60px;
+    height: 3px;
+    background: #0078ff;
+    margin: 0 auto 1rem;
+    border-radius: 2px;
+  }
+  
+  .subtitle {
+    color: #64748b;
+    font-size: 1.1rem;
+  }
+  
+  /* Timeline Wrapper */
+  .timeline-wrapper {
+    position: relative;
+  }
+  
+  .timeline-line-continuous {
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, #0078ff 0%, #00d4ff 50%, #667eea 100%);
+    z-index: 1;
+    border-radius: 3px;
+    box-shadow: 
+      0 0 10px rgba(0, 120, 255, 0.3),
+      0 0 20px rgba(0, 120, 255, 0.15);
+  }
+  
+  .timeline-line-continuous::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.1) 100%
+    );
+    border-radius: 3px;
+  }
+  
+  /* Timeline Container */
+  .timeline-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    position: relative;
+  }
+  
+  /* Experience Item */
+  .experience-item {
+    display: flex;
+    gap: 2rem;
+    position: relative;
+    animation: fadeInUp 0.7s ease-out backwards;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Timeline Side */
+  .timeline-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-top: 8px;
+    flex-shrink: 0;
+  }
+  
+  .timeline-dot {
+    width: 20px;
+    height: 20px;
+    background: white;
+    border: 4px solid #0078ff;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+    box-shadow: 
+      0 0 0 4px rgba(0, 120, 255, 0.1),
+      0 2px 8px rgba(0, 120, 255, 0.3);
+  }
+  
+  .timeline-dot.current {
+    width: 26px;
+    height: 26px;
+    background: linear-gradient(135deg, #0078ff 0%, #00d4ff 100%);
+    border: 4px solid #0078ff;
+    box-shadow: 
+      0 0 0 6px rgba(0, 120, 255, 0.15),
+      0 0 20px rgba(0, 120, 255, 0.5),
+      0 4px 15px rgba(0, 120, 255, 0.4);
+  }
+  
+  .dot-pulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0078ff 0%, #00d4ff 100%);
+    animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes pulse-ring {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(2.5);
+      opacity: 0;
+    }
+  }
+  
+  /* Experience Content */
+  .experience-content {
+    flex: 1;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 
+      0 1px 3px rgba(0, 0, 0, 0.05),
+      0 10px 30px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .experience-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+      0 5px 15px rgba(0, 0, 0, 0.1),
+      0 15px 40px rgba(0, 120, 255, 0.1);
+    border-color: rgba(0, 120, 255, 0.2);
+  }
+  
+  /* Card Header */
+  .card-header {
+    padding: 2rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border-bottom: 1px solid #e2e8f0;
+    position: relative;
+  }
+  
+  .card-header.has-background {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 200px;
+    padding: 2.5rem 2rem;
+  }
+  
+  .header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 120, 255, 0.9) 0%,
+      rgba(0, 212, 255, 0.85) 100%
+    );
+    z-index: 1;
+  }
+  
+  .header-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .has-background .header-content {
+    color: white;
+  }
+  
+  .header-main {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex: 1;
+  }
+  
+  .logo-wrapper {
+    width: 70px;
+    height: 70px;
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .has-background .logo-wrapper {
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .experience-content:hover .logo-wrapper {
+    border-color: #0078ff;
+    box-shadow: 0 4px 12px rgba(0, 120, 255, 0.15);
+  }
+  
+  .has-background .experience-content:hover .logo-wrapper {
+    border-color: white;
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+  }
+  
+  .company-logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  
+  .title-wrapper h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 0.4rem;
+    line-height: 1.2;
+  }
+  
+  .has-background .title-wrapper h3 {
+    color: white;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .company-name {
+    font-size: 1.1rem;
+    color: #0078ff;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .has-background .company-name {
+    color: white;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0.95;
+  }
+  
+  .meta-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    text-align: right;
+  }
+  
+  .period,
+  .location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #64748b;
+    font-size: 0.9rem;
+  }
+  
+  .has-background .period,
+  .has-background .location {
+    color: white;
+  }
+  
+  .period {
+    font-weight: 600;
+    color: #475569;
+  }
+  
+  .has-background .period {
+    color: white;
+    font-weight: 700;
+  }
+  
+  .period i,
+  .location i {
+    font-size: 0.85rem;
+    opacity: 0.7;
+  }
+  
+  .has-background .period i,
+  .has-background .location i {
+    opacity: 0.9;
+  }
+  
+  /* Card Body */
+  .card-body {
+    padding: 2rem;
+  }
+  
+  .description {
+    color: #475569;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+  }
+  
+  .info-section {
+    margin-bottom: 2rem;
+  }
+  
+  .info-section:last-child {
+    margin-bottom: 0;
+  }
+  
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1e293b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+  }
+  
+  .section-title i {
+    color: #0078ff;
+    font-size: 1rem;
+  }
+  
+  /* Tech Grid */
+  .tech-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+  
+  .tech-badge {
+    background: #f1f5f9;
+    color: #475569;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+  }
+  
+  .tech-badge:hover {
+    background: #0078ff;
+    color: white;
+    border-color: #0078ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 120, 255, 0.2);
+  }
+  
+  /* Achievements */
+  .achievements {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .achievements li {
+    color: #475569;
+    padding-left: 1.8rem;
+    position: relative;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+  
+  .achievements li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 8px;
+    height: 8px;
+    background: #0078ff;
+    border-radius: 50%;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .experience-section {
+      padding: 60px 0;
+    }
+    
+    .section-header h2 {
+      font-size: 2rem;
+    }
+    
+    .timeline-line-continuous {
+      left: 8px;
+    }
+    
+    .timeline-container {
+      gap: 2.5rem;
+    }
+    
+    .experience-item {
+      gap: 1.5rem;
+    }
+    
+    .timeline-dot {
+      width: 16px;
+      height: 16px;
+      border-width: 3px;
+    }
+    
+    .timeline-dot.current {
+      width: 22px;
+      height: 22px;
+    }
+    
+    .card-header,
+    .card-header.has-background {
+      min-height: auto;
+      padding: 1.5rem;
+    }
+    
+    .header-content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .header-main {
+      width: 100%;
+    }
+    
+    .meta-wrapper {
+      text-align: left;
+      width: 100%;
+    }
+    
+    .logo-wrapper {
+      width: 60px;
+      height: 60px;
+    }
+    
+    .title-wrapper h3 {
+      font-size: 1.3rem;
+    }
+    
+    .card-body {
+      padding: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .timeline-line-continuous {
+      left: 6px;
+      width: 2px;
+    }
+    
+    .experience-item {
+      gap: 1rem;
+    }
+    
+    .timeline-side {
+      padding-top: 6px;
+    }
+    
+    .header-main {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .logo-wrapper {
+      margin: 0 auto;
+    }
+    
+    .meta-wrapper {
+      text-align: center;
+    }
+    
+    .period,
+    .location {
+      justify-content: center;
+    }
+  }
+</style>

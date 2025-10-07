@@ -1,0 +1,204 @@
+---
+const stats = [
+  { end: 50, label: 'Proyectos Completados', icon: 'fas fa-check-circle' },
+  { end: 5, label: 'Años de Experiencia', icon: 'fas fa-calendar-alt' },
+  { end: 100, label: 'Clientes Satisfechos', icon: 'fas fa-users' },
+];
+---
+
+<section class="counter-section" id="stats">
+  <div class="counter-overlay"></div>
+  <div class="container">
+    <div class="counter-grid">
+      {stats.map((stat, index) => (
+        <div class="counter-box" style={`animation-delay: ${index * 0.1}s`}>
+          <div class="counter-icon">
+            <i class={stat.icon}></i>
+          </div>
+          <div class="counter-content">
+            <span class="counter-number" data-target={stat.end}>0</span>
+            <span class="counter-suffix">+</span>
+          </div>
+          <p class="counter-label">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .counter-section {
+    position: relative;
+    background: linear-gradient(135deg, #0078ff 0%, #00a8ff 100%);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
+    padding: 100px 0;
+  }
+  
+  .counter-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 120, 255, 0.85);
+  }
+  
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .counter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .counter-box {
+    animation: fadeIn 0.8s ease-out backwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .counter-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 15px rgba(255, 255, 255, 0.1);
+    display: grid;
+    place-items: center;
+    font-size: 2rem;
+    transition: all 0.3s ease;
+  }
+  
+  .counter-box:hover .counter-icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.15);
+  }
+  
+  .counter-content {
+    margin-bottom: 1rem;
+  }
+  
+  .counter-number {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+  
+  .counter-suffix {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-left: 0.25rem;
+  }
+  
+  .counter-label {
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin: 0;
+    opacity: 0.95;
+  }
+  
+  @media (max-width: 768px) {
+    .counter-section {
+      background-attachment: scroll;
+      padding: 60px 0;
+    }
+    
+    .counter-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+    
+    .counter-number {
+      font-size: 2.5rem;
+    }
+    
+    .counter-label {
+      font-size: 0.95rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .counter-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  interface Counter {
+    element: HTMLElement;
+    target: number;
+    current: number;
+    increment: number;
+    hasAnimated: boolean;
+  }
+
+  // Esperar a que el DOM esté completamente cargado
+  document.addEventListener('DOMContentLoaded', () => {
+    const counters: Counter[] = [];
+    const counterElements = document.querySelectorAll('.counter-number') as NodeListOf<HTMLElement>;
+    
+    counterElements.forEach(element => {
+      const target = parseInt(element.getAttribute('data-target') || '0');
+      const increment = target / 50; // Dividir en 50 pasos para animación más suave
+      
+      counters.push({
+        element: element,
+        target: target,
+        current: 0,
+        increment: increment,
+        hasAnimated: false
+      });
+    });
+
+    function animateCounter(counter: Counter) {
+      if (counter.hasAnimated) return;
+      
+      const updateCounter = () => {
+        counter.current += counter.increment;
+        
+        if (counter.current < counter.target) {
+          counter.element.textContent = Math.ceil(counter.current).toString();
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.element.textContent = counter.target.toString();
+          counter.hasAnimated = true;
+        }
+      };
+      
+      updateCounter();
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = counters.find(c => c.element === entry.target);
+          if (counter) {
+            animateCounter(counter);
+          }
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => {
+      observer.observe(counter.element);
+    });
+  });
+</script>

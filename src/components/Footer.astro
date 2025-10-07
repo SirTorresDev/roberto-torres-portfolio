@@ -1,0 +1,232 @@
+---
+const socialLinks = [
+  { name: 'LinkedIn', icon: 'fab fa-linkedin-in', url: 'https://www.linkedin.com/in/rober-torres/', color: '#0077b5' },
+  { name: 'GitHub', icon: 'fab fa-github', url: 'https://github.com/SirTorresDev', color: '#333' },
+  { name: 'Twitter', icon: 'fab fa-twitter', url: 'https://twitter.com/RoberttoPrensa', color: '#1da1f2' },
+  { name: 'Instagram', icon: 'fab fa-instagram', url: 'https://www.instagram.com/rober.torresss/', color: '#e4405f' },
+
+];
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <h3>Roberto Torres</h3>
+        <p>Full Stack Developer</p>
+        <p class="footer-tagline">Designing exceptional web experiences</p>
+      </div>
+      
+      <!-- Social Links -->
+      <div class="footer-social">
+        <h4>Follow Me</h4>
+        <div class="social-links">
+          {socialLinks.map(social => (
+            <a 
+              href={social.url} 
+              class="social-link" 
+              aria-label={social.name}
+              title={social.name}
+              style={`--social-color: ${social.color}`}
+            >
+              <i class={social.icon}></i>
+            </a>
+          ))}
+        </div>
+      </div>
+      
+      <!-- Contact -->
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <ul class="contact-list">
+          <li>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:roberto@email.com">robertotorrespren@outlook.com</a>
+          </li>
+          <li>
+            <i class="fas fa-phone"></i>
+            <a href="tel:+34 692229025">+34 692229025</a>
+          </li>
+          <li>
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Madrid, España</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Copyright -->
+    <div class="footer-bottom">
+      <p class="copyright">
+        &copy; {currentYear} <strong>Roberto Torres</strong>
+      </p>
+    </div>
+  </div>
+  
+  <!-- Back to Top Button -->
+  <a href="#page-top" class="back-to-top" id="backToTop" aria-label="Volver arriba">
+    <i class="fas fa-chevron-up"></i>
+  </a>
+</footer>
+
+<style>
+  .footer {
+    background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%);
+    color: #fff;
+    padding: 4rem 0 2rem;
+    position: relative;
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+  
+  .footer-brand h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+  }
+  
+  .footer-brand p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-tagline {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  .footer-social h4,
+  .footer-contact h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .social-link {
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 1.2rem;
+    transition: var(--transition);
+  }
+  
+  .social-link:hover {
+    background: var(--social-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .contact-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .contact-list li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .contact-list i {
+    color: var(--primary);
+    width: 20px;
+  }
+  
+  .contact-list a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: var(--transition);
+  }
+  
+  .contact-list a:hover {
+    color: var(--primary);
+  }
+  
+  .footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+  }
+  
+  .copyright {
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .built-with {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+  }
+  
+  .built-with i {
+    color: #e74c3c;
+    animation: heartbeat 1.5s infinite;
+  }
+  
+  .built-with strong {
+    color: var(--primary);
+  }
+  
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    50% { transform: scale(1); }
+  }
+  
+  @media (max-width: 768px) {
+    .footer {
+      padding: 3rem 0 1.5rem;
+    }
+    
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      text-align: center;
+    }
+    
+    .social-links {
+      justify-content: center;
+    }
+    
+    .contact-list li {
+      justify-content: center;
+    }
+  }
+</style>
+
+<script>
+  // Back to Top Button
+  const backToTop = document.getElementById('backToTop');
+  
+  if (backToTop) {
+    const toggleBackToTop = () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    };
+    
+    window.addEventListener('scroll', toggleBackToTop, { passive: true });
+    toggleBackToTop();
+  }
+</script>

@@ -1,0 +1,673 @@
+---
+const skills = [
+  // Frontend
+  { name: 'HTML & CSS', level: 95, icon: 'fab fa-html5', color: '#E34F26', category: 'frontend' },
+  { name: 'TypeScript', level: 95, icon: 'fab fa-js', color: '#F7DF1E', category: 'frontend' },
+  { name: 'React', level: 90, icon: 'fab fa-react', color: '#61DAFB', category: 'frontend' },
+  { name: 'Angular', level: 85, icon: 'fab fa-angular', color: '#DD0031', category: 'frontend' },
+  
+  // Backend
+  { name: 'Node.js', level: 90, icon: 'fab fa-node', color: '#339933', category: 'backend' },
+  { name: 'Java', level: 95, icon: 'fab fa-java', color: '#007396', category: 'backend' },
+  { name: 'Spring', level: 90, icon: 'fas fa-leaf', color: '#6DB33F', category: 'backend' },
+  { name: 'Python', level: 85, icon: 'fab fa-python', color: '#3776AB', category: 'backend' },
+  { name: '.NET', level: 85, icon: 'fas fa-code', color: '#092E20', category: 'backend' },
+  { name: 'C++', level: 80, icon: 'fas fa-code', color: '#00599C', category: 'backend' },
+  
+  // Database
+  { name: 'MySQL', level: 90, icon: 'fas fa-database', color: '#4479A1', category: 'database' },
+  { name: 'MongoDB', level: 30, icon: 'fas fa-leaf', color: '#47A248', category: 'database' },
+  
+  // DevOps & Cloud
+  { name: 'AWS', level: 85, icon: 'fab fa-aws', color: '#FF9900', category: 'devops' },
+  { name: 'Docker & Kubernetes', level: 80, icon: 'fab fa-docker', color: '#2496ED', category: 'devops' },
+  
+  // Architecture & Testing
+  { name: 'API Rest', level: 95, icon: 'fas fa-exchange-alt', color: '#0078ff', category: 'architecture' },
+  { name: 'Microservices', level: 90, icon: 'fas fa-project-diagram', color: '#667eea', category: 'architecture' },
+  { name: 'Jest & Cypress', level: 85, icon: 'fas fa-crown', color: '#C21325', category: 'testing' },
+  { name: 'JUnit', level: 85, icon: 'fas fa-vial', color: '#C21325', category: 'testing' },
+];
+
+const stats = [
+  { number: '5+', label: 'Years Experience', icon: 'fas fa-briefcase' },
+  { number: '50+', label: 'Projects Completed', icon: 'fas fa-project-diagram' },
+  { number: '17+', label: 'Technologies', icon: 'fas fa-code' },
+  { number: '100%', label: 'Client Satisfaction', icon: 'fas fa-users' }
+];
+
+const info = {
+  name: 'Roberto Torres',
+  role: 'Full Stack Developer',
+  email: 'robertotorrespren@outlook.es',
+  phone: '+34 692229025',
+  location: 'Madrid, Spain',
+  availability: 'Available for opportunities',
+  university: 'Complutense University of Madrid',
+  degree: 'Software Engineering'
+};
+
+const categories = [
+  { id: 'frontend', label: 'Frontend', icon: 'fas fa-desktop' },
+  { id: 'backend', label: 'Backend', icon: 'fas fa-server' },
+  { id: 'database', label: 'Database', icon: 'fas fa-database' },
+  { id: 'devops', label: 'DevOps & Cloud', icon: 'fas fa-cloud' },
+  { id: 'architecture', label: 'Architecture', icon: 'fas fa-project-diagram' },
+  { id: 'testing', label: 'Testing', icon: 'fas fa-vial' }
+];
+---
+
+
+<section id="about" class="about-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>About Me</h2>
+      <div class="line"></div>
+      <p class="subtitle">Get to know me better</p>
+    </div>
+
+    <div class="about-content">
+      <!-- Main Content -->
+      <div class="content-grid">
+        <div class="content-left">
+          <div class="profile-card">
+            <div class="profile-image">
+              <img 
+                src="/assets/img/profile.jpg" 
+                alt="Roberto Torres - Full Stack Developer"
+                loading="lazy"
+              />
+              <div class="status-badge">
+                <span class="status-dot"></span>
+                Available
+              </div>
+            </div>
+            
+            <div class="profile-info">
+              <h3>{info.name}</h3>
+              <p class="role">{info.role}</p>
+              
+              <div class="education-box">
+                <i class="fas fa-graduation-cap"></i>
+                <div>
+                  <strong>{info.degree}</strong>
+                  <p>{info.university}</p>
+                </div>
+              </div>
+              
+              <div class="contact-list">
+                <div class="contact-item">
+                  <i class="fas fa-envelope"></i>
+                  <span>{info.email}</span>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-phone"></i>
+                  <span>{info.phone}</span>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span>{info.location}</span>
+                </div>
+              </div>
+              
+              <a href="mailto:roberto@email.com" class="btn-primary">
+                <i class="fas fa-paper-plane"></i>
+                Get In Touch
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-right">
+          <div class="bio">
+            <h3>Hello! I'm Roberto</h3>
+            <p class="lead">
+              A passionate Full Stack Developer specializing in building exceptional digital experiences.
+            </p>
+
+            <p>
+              With over 5 years of experience in web development, I've had the privilege of working on 
+              diverse projects ranging from e-commerce platforms to enterprise applications. My expertise 
+              lies in creating scalable, efficient, and user-friendly solutions.
+            </p>
+
+             <p>
+              I am currently working as  <strong>Technical Leadership & Software Engineering - Iberia</strong>, where I contribute 
+              to developing enterprise-level applications using Spring Boot, microservices architecture, and modern 
+              frontend technologies.
+            </p>
+            <br>
+
+            <div class="highlight-box">
+              <i class="fas fa-lightbulb"></i>
+              <div>
+                <strong>My Approach:</strong> I focus on writing clean, maintainable code following industry 
+                best practices. Continuous learning and staying updated with the latest technologies is at 
+                the core of my professional journey.
+              </div>
+            </div>
+            <br>
+          </div>
+
+          <!-- Stats -->
+          <div class="stats-grid">
+            {stats.map(stat => (
+              <div class="stat-card">
+                <i class={stat.icon}></i>
+                <h4>{stat.number}</h4>
+                <p>{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills Section -->
+      <div class="skills-section">
+        <h3 class="skills-title">
+          <i class="fas fa-code"></i>
+          Technical Skills & Expertise
+        </h3>
+        
+        <div class="skills-categories">
+          {categories.map(category => {
+            const categorySkills = skills.filter(skill => skill.category === category.id);
+            if (categorySkills.length === 0) return null;
+            
+            return (
+              <div class="category-group">
+                <h4 class="category-title">
+                  <i class={category.icon}></i>
+                  {category.label}
+                </h4>
+                <div class="skills-grid">
+                  {categorySkills.map(skill => (
+                    <div class="skill-card">
+                      <div class="skill-icon" style={`color: ${skill.color}`}>
+                        <i class={skill.icon}></i>
+                      </div>
+                      <div class="skill-info">
+                        <div class="skill-header">
+                          <span class="skill-name">{skill.name}</span>
+                          <span class="skill-percent">{skill.level}%</span>
+                        </div>
+                        <div class="skill-bar">
+                          <div 
+                            class="skill-progress" 
+                            style={`width: ${skill.level}%; background: ${skill.color}`}
+                            data-width={skill.level}
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-section {
+    background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+    padding: 90px 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* Header */
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 0.8rem;
+  }
+  
+  .line {
+    width: 60px;
+    height: 3px;
+    background: #0078ff;
+    margin: 0 auto 1rem;
+    border-radius: 2px;
+  }
+  
+  .subtitle {
+    color: #64748b;
+    font-size: 1.1rem;
+  }
+  
+  /* Content Grid */
+  .content-grid {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+  }
+  
+  /* Profile Card */
+  .profile-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 100px;
+  }
+  
+  .profile-image {
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+  
+  .profile-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .status-badge {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #10b981;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    animation: pulse-dot 2s infinite;
+  }
+  
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  
+  .profile-info h3 {
+    font-size: 1.8rem;
+    color: #1a202c;
+    margin-bottom: 0.3rem;
+  }
+  
+  .role {
+    color: #0078ff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+  
+  .education-box {
+    display: flex;
+    gap: 1rem;
+    background: #eff6ff;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .education-box i {
+    color: #0078ff;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+  
+  .education-box strong {
+    display: block;
+    color: #1a202c;
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+  }
+  
+  .education-box p {
+    color: #475569;
+    font-size: 0.85rem;
+    margin: 0;
+  }
+  
+  .contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #475569;
+    font-size: 0.95rem;
+  }
+  
+  .contact-item i {
+    width: 20px;
+    color: #0078ff;
+    font-size: 1rem;
+  }
+  
+  .btn-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    width: 100%;
+    background: #0078ff;
+    color: white;
+    padding: 0.9rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 120, 255, 0.3);
+  }
+  
+  /* Bio */
+  .bio {
+    background: white;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+  }
+  
+  .bio h3 {
+    font-size: 2rem;
+    color: #1a202c;
+    margin-bottom: 1rem;
+  }
+  
+  .lead {
+    font-size: 1.2rem;
+    color: #475569;
+    font-weight: 500;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+  
+  .bio p {
+    color: #475569;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+  
+  .highlight-box {
+    display: flex;
+    gap: 1rem;
+    background: #eff6ff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #0078ff;
+    margin-top: 1.5rem;
+  }
+  
+  .highlight-box i {
+    color: #0078ff;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+  
+  .highlight-box strong {
+    color: #1a202c;
+  }
+  
+  /* Stats Grid */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+  }
+  
+  .stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 120, 255, 0.15);
+  }
+  
+  .stat-card i {
+    font-size: 2rem;
+    color: #0078ff;
+    margin-bottom: 0.8rem;
+  }
+  
+  .stat-card h4 {
+    font-size: 2rem;
+    color: #1a202c;
+    margin-bottom: 0.3rem;
+  }
+  
+  .stat-card p {
+    color: #64748b;
+    font-size: 0.9rem;
+  }
+  
+  /* Skills Section */
+  .skills-section {
+    background: white;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  }
+  
+  .skills-title {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.8rem;
+    color: #1a202c;
+    margin-bottom: 2.5rem;
+  }
+  
+  .skills-title i {
+    color: #0078ff;
+    font-size: 1.5rem;
+  }
+  
+  .skills-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+  
+  .category-group {
+    border-left: 3px solid #e2e8f0;
+    padding-left: 1.5rem;
+  }
+  
+  .category-title {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.2rem;
+    color: #1a202c;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+  }
+  
+  .category-title i {
+    color: #0078ff;
+    font-size: 1.1rem;
+  }
+  
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .skill-card {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .skill-icon {
+    font-size: 2.5rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
+  
+  .skill-info {
+    flex: 1;
+  }
+  
+  .skill-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+  
+  .skill-name {
+    font-weight: 600;
+    color: #1a202c;
+    font-size: 1.05rem;
+  }
+  
+  .skill-percent {
+    font-weight: 700;
+    color: #0078ff;
+    font-size: 0.95rem;
+  }
+  
+  .skill-bar {
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .skill-progress {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 1.5s ease-out;
+    width: 0%;
+  }
+  
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    .profile-card {
+      position: static;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .about-section {
+      padding: 60px 0;
+    }
+    
+    .section-header h2 {
+      font-size: 2rem;
+    }
+    
+    .skills-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .bio {
+      padding: 1.5rem;
+    }
+    
+    .bio h3 {
+      font-size: 1.5rem;
+    }
+    
+    .category-group {
+      padding-left: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .skill-icon {
+      width: 50px;
+      height: 50px;
+      font-size: 2rem;
+    }
+  }
+</style>
+
+<script>
+  const observerOptions = {
+    threshold: 0.3,
+    rootMargin: '0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const progressBars = entry.target.querySelectorAll('.skill-progress') as NodeListOf<HTMLElement>;
+        progressBars.forEach(bar => {
+          const width = bar.getAttribute('data-width') + '%';
+          setTimeout(() => {
+            bar.style.width = width;
+          }, 100);
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+  
+  const skillsSection = document.querySelector('.skills-section');
+  if (skillsSection) {
+    observer.observe(skillsSection);
+  }
+</script>

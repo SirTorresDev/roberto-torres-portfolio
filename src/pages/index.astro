@@ -1,16 +1,32 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
+import NavBar from '../components/NavBar.astro';
+import Intro from '../components/Intro.astro';
+import About from '../components/About.astro';
+import Courses from '../components/Courses.astro';
+import Career from '../components/Career.astro';
+import Counter from '../components/Counter.astro';
+import Projects from '../components/Projects.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout 
+  title="Roberto Torres - Full Stack Developer Portfolio"
+  description="Portfolio profesional de Roberto Torres. Desarrollador Full Stack especializado en React, Node.js, Python y Django. Proyectos, experiencia y habilidades."
+>
+  <!-- Navigation -->
+  <NavBar />
+  
+  <!-- Main Content -->
+  <main>
+    <Intro />
+    <About />
+    <Courses />
+    <Career />
+    <Counter />
+    <Projects />
+  </main>
+  
+  <!-- Footer -->
+  <Footer />
+</Layout>

@@ -1,14 +1,23 @@
 {
   "name": "roberto-torres-portfolio",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "start": "astro dev",
+    "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "clean": "rm -rf dist .astro node_modules/.vite",
+    "lighthouse": "lighthouse http://localhost:4321 --view"
   },
   "dependencies": {
-    "astro": "^5.14.1"
+    "astro": "^4.0.7"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.3.4",
+    "typescript": "^5.3.3",
+    "lightningcss": "^1.22.1"
   }
 }
