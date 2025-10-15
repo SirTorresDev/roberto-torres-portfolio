@@ -20,10 +20,22 @@ const {
     <meta name="theme-color" content="#0078ff" />
 
     <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LH7VZXDKB8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(...args){
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push(args);
+      }
+      gtag();
+      gtag('config', 'G-LH7VZXDKB8');
+    </script>
+    <!-- End Google Analytics -->
 
+    <!-- Google Tag Manager -->
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-      (function(w,d,s,l,i){
+        (function(w,d,s,l,i){
           w[l]=w[l]||[];
           w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
           var f=d.getElementsByTagName(s)[0],
@@ -36,9 +48,8 @@ const {
         })(window,document,'script','dataLayer','GTM-K9KD3Q2K');
       });
     </script>
-    <!-- End Google Analytics -->
+    <!-- End Google Tag Manager -->
 
-    
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
