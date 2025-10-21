@@ -5,7 +5,7 @@
   
   ### Full Stack Developer | Software Engineer | Tech Enthusiast
   
-  [![Astro](https://img.shields.io/badge/Astro-5.4-FF5D01?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build)
+  [![Astro](https://img.shields.io/badge/Astro-5.14-FF5D01?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build)
   [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
   [![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
   
