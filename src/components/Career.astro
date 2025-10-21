@@ -3,15 +3,17 @@ const experiences = [
   {
     title: 'Technical Leadership & Software Engineering',
     company: 'IAG Iberia',
-    period: '06/2024 - Present',
+    period: '02/2024 - Present',
     location: 'Madrid, Spain',
     logo: '/assets/img/companies/iberia-logo.png',
     description: 'Development and maintenance of critical business applications using Spring Boot and microservices architecture.',
-    technologies: ['AWS', 'Angular', 'Java', 'Docker', 'Kubernetes', 'Microservices'],
+    technologies: ['AWS','EKS', 'Angular', 'Java', 'Docker', 'Kubernetes', 'Dynatrace','Grafana','Splunk'],
     achievements: [
-      'Development of microservices with Spring Boot',
-      'Integration with legacy systems',
-      'Performance optimization and scalability'
+      'Migration of services to the AWS cloud',
+      'Amazon EKS cluster monitoring and pod visualization',
+      'Incident monitoring and troubleshooting using Dynatrace and Splunk',
+      'Stress testing for performance and scalability optimisation',
+      'Development of microservices with Spring Boot'
     ],
     current: true,
     backgroundImage: 'https://media.licdn.com/dms/image/v2/D4D16AQH3MrOi0MDbOw/profile-displaybackgroundimage-shrink_350_1400/B4DZXUgNf9G8Ac-/0/1743026969464?e=1762992000&v=beta&t=EjhIjbwpFWGt0FBmYpkNDwlFD9uHQ92FkZnuQ4oKJ4Y'
@@ -19,27 +21,28 @@ const experiences = [
   {
     title: 'Full Stack Developer',
     company: 'ATOS',
-    period: '01/2023 - 05/2024',
+    period: '01/2022 - 02/2024',
     location: 'Madrid, Spain',
     logo: '/assets/img/companies/atos-logo.png',
-    description: 'Full-stack development of web applications using React, Node.js and PostgreSQL.',
-    technologies: ['React', 'Node.js', 'PostgreSQL', 'AWS', 'Docker'],
+    description: 'Full-stack development of web applications using Angular, Node.js and MySQL.',
+    technologies: ['Angular', 'SpringBoot', 'MySQL', 'AWS', 'Github Actions'],
     achievements: [
-      'Development of enterprise applications',
-      'Implementation of CI/CD pipelines',
-      'Database optimization and design'
+      'Building interactive web applications with Angular',
+      'Development of microservices with Spring Boot',
+      'Implementation of CI/CD pipelines with Github Actions',
+      'Database management and maintenance with MySQL'
     ]
   },
   {
-    title: 'Junior Developer',
+    title: 'Frontend Developer',
     company: 'LCC Spain',
-    period: '06/2022 - 12/2022',
+    period: '01/2021 - 01/2022',
     location: 'Madrid, Spain',
     logo: '/assets/img/companies/lcc-logo.png',
     description: 'Development of web applications and API integration. Collaboration in agile teams.',
-    technologies: ['React', 'Django', 'Python', 'REST APIs', 'Git'],
+    technologies: ['Angular', 'Django', 'Python', 'MySQL', 'REST APIs', 'Git'],
     achievements: [
-      'Frontend development with React',
+      'Frontend development with Angular',
       'Backend development with Django',
       'Unit and integration testing'
     ]
@@ -183,7 +186,7 @@ const experiences = [
   
   .timeline-line-continuous {
     position: absolute;
-    left: 10px;
+    left: 18.5px;
     top: 0;
     bottom: 0;
     width: 3px;
@@ -246,6 +249,7 @@ const experiences = [
     position: relative;
     padding-top: 8px;
     flex-shrink: 0;
+    width: 40px;
   }
   
   .timeline-dot {
@@ -571,7 +575,7 @@ const experiences = [
     }
     
     .timeline-line-continuous {
-      left: 8px;
+      left: 14.5px;
     }
     
     .timeline-container {
@@ -580,6 +584,10 @@ const experiences = [
     
     .experience-item {
       gap: 1.5rem;
+    }
+    
+    .timeline-side {
+      width: 32px;
     }
     
     .timeline-dot {
@@ -629,16 +637,28 @@ const experiences = [
   
   @media (max-width: 480px) {
     .timeline-line-continuous {
-      left: 6px;
+      left: 13px;
       width: 2px;
+    }
+    
+    .timeline-side {
+      width: 28px;
+      padding-top: 6px;
+    }
+    
+    .timeline-dot {
+      width: 14px;
+      height: 14px;
+      border-width: 2px;
+    }
+    
+    .timeline-dot.current {
+      width: 18px;
+      height: 18px;
     }
     
     .experience-item {
       gap: 1rem;
-    }
-    
-    .timeline-side {
-      padding-top: 6px;
     }
     
     .header-main {
