@@ -72,7 +72,7 @@ const courses = [
     icon: 'fas fa-brain',
     color: '#9333EA',
     description: 'Artificial intelligence application in medical diagnosis',
-    credlyId: 'RDFOQ3BZO78J',
+    courseraId: 'RDFOQ3BZO78J',
     level: 'Specialized',
   },
 
@@ -136,10 +136,14 @@ const courses = [
             
             <p class="course-description">{course.description}</p>
             
-            {course.credlyId && (
+            {(course.credlyId || course.courseraId) && (
               <div class="credential-actions">
                 <a 
-                  href={`https://www.credly.com/badges/${course.credlyId}`}
+                  href={
+                    course.credlyId 
+                      ? `https://www.credly.com/badges/${course.credlyId}`
+                      : `https://www.coursera.org/account/accomplishments/verify/${course.courseraId}`
+                  }
                   target="_blank"
                   rel="noopener noreferrer"
                   class="btn-credential"
